@@ -87,7 +87,7 @@ function Decoration() {
       {/* left middle */}
       <img
         src={mid_fw_l}
-        className="absolute top-[300px] -left-[160px] h-[600px] fw-l"
+        className="absolute top-[300px] -left-[170px] h-[600px] fw-l"
       />
       {/* right top */}
       <img
@@ -97,20 +97,11 @@ function Decoration() {
       {/* right middle */}
       <img
         src={mid_fw_r}
-        className="absolute top-[300px] -right-[160px] h-[600px] fw-r"
+        className="absolute top-[300px] -right-[170px] h-[600px] fw-r"
       />
       {/* rotate flowers */}
-      <img
-        src={big_fw}
-        className="absolute top-[260px] -left-[80px] h-[180px] big-fw-l fw-l"
-      />
-      <img
-        src={big_fw}
-        className="absolute top-[260px] -right-[80px] h-[180px] big-fw-r fw-r"
-      />
-      {/* bottom flowers */}
-      <img src={fw_bl} className="absolute bottom-0 left-0 h-[180px] fw-bl fw-l" />
-      <img src={fw_br} className="absolute bottom-0 right-0 h-[180px] fw-br fw-r" />
+      <div class="butterfly-small butterfly-left absolute top-[390px]"></div>
+      <div class="butterfly-small butterfly-right absolute top-[390px] -right-[20px]"></div>
     </div>
   );
 }
