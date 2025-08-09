@@ -100,8 +100,8 @@ function Decoration() {
         className="absolute top-[300px] -right-[170px] h-[600px] fw-r"
       />
       {/* rotate flowers */}
-      <div class="butterfly-small butterfly-left absolute top-[390px]"></div>
-      <div class="butterfly-small butterfly-right absolute top-[390px] -right-[20px]"></div>
+      <div class="butterfly-small butterfly-left absolute top-[390px] fw-l"></div>
+      <div class="butterfly-small butterfly-right absolute top-[390px] -right-[20px] fw-r"></div>
     </div>
   );
 }
