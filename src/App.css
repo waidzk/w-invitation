@@ -210,11 +210,27 @@ body {
   }
 }
 
+.butterfly-large.butterfly-left {
+  /* Wings */
+  /* Right wing */
+  /* Left wing */
+  transform: rotate(20deg) scale(0.6, 0.6);
+  transform-origin: center center;
+}
+.butterfly-large.butterfly-right {
+  width: 140px;
+  height: 87px;
+  /* Wings */
+  /* Right wing */
+  /* Left wing */
+  transform: rotate(-20deg) scale(0.6, 0.6);
+  transform-origin: center center;
+}
 .butterfly-small.butterfly-left {
   /* Wings */
   /* Right wing */
   /* Left wing */
-  transform: rotate(-20deg) scale(0.5, 0.5);
+  transform: rotate(20deg) scale(0.4, 0.4);
   transform-origin: center center;
 }
 .butterfly-small.butterfly-right {
@@ -223,10 +239,10 @@ body {
   /* Wings */
   /* Right wing */
   /* Left wing */
-  transform: rotate(20deg) scale(0.5, 0.5);
+  transform: rotate(-20deg) scale(0.4, 0.4);
   transform-origin: center center;
 }
-.butterfly-small:before, .butterfly-small:after {
+.butterfly:before, .butterfly:after {
   position: absolute;
   width: 75px;
   content: url("/images/butterfly-wing.png");
@@ -234,13 +250,13 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-.butterfly-small:before {
+.butterfly:before {
   transform: rotate3d(0, 0, 0, 180deg);
   /* Mirror left wing */
   transform-origin: center right;
   animation-name: rightwingani;
 }
-.butterfly-small:after {
+.butterfly:after {
   transform-origin: top right;
   animation-name: leftwingani;
 }
