@@ -21,13 +21,13 @@ function Opening() {
         <img src="/images/frame.png" className="mb-2 w-32 sm:w-64" />
         <h5 className="mb-6 text-xs">The Wedding of</h5>
         <div className="flex flex-col items-center javassoul mb-10">
-          <h1 className="text-6xl sm:text-7xl">Dinda</h1>
+          <h1 className="text-6xl sm:text-7xl">Novar</h1>
           <h2 className="text-3xl">&</h2>
-          <h1 className="text-6xl sm:text-7xl">Kanda</h1>
+          <h1 className="text-6xl sm:text-7xl">Raras</h1>
         </div>
         <div className="bg-white/15 backdrop-blur-xs mb-4 p-5 flex flex-col items-center w-48 rounded-xl">
           <p className="text-xs">Kepada yth,</p>
-          <p className="text-xs">Bapak</p>
+          <p className="text-xs">Bapak/Ibu, Saudara/i</p>
           <h1 className="text-2xl">Andi</h1>
         </div>
         <a
