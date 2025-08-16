@@ -99,14 +99,14 @@ function Decoration() {
         className="absolute top-[300px] -right-[140px] h-[600px] fw-r z-10 rotate-180"
       />
       {/*  butterfly top */}
-      <div class="butterfly butterfly-small butterfly-left absolute top-[30px] left-[30px] fw-l z-100"></div>
-      <div class="butterfly butterfly-small butterfly-right absolute top-[50px] -right-[20px] fw-r z-100"></div>
+      <div class="butterfly butterfly-small butterfly-left animation-3 absolute top-[30px] left-[30px] fw-l z-100"></div>
+      <div class="butterfly butterfly-small butterfly-right animation-2 absolute top-[50px] -right-[20px] fw-r z-100"></div>
       {/*  butterfly middle */}
-      <div class="butterfly butterfly-large butterfly-left absolute top-[350px] left-[50px] fw-l z-100"></div>
-      <div class="butterfly butterfly-large butterfly-right absolute top-[300px] right-[5px] fw-r z-100"></div>
+      <div class="butterfly butterfly-large butterfly-left animation-1 absolute top-[350px] left-[20px] fw-l z-100"></div>
+      <div class="butterfly butterfly-large butterfly-right animation-3 absolute top-[330px] right-[5px] fw-r z-100"></div>
       {/*  butterfly bottom */}
-      <div class="butterfly butterfly-small butterfly-left absolute bottom-[120px] left-[40px] fw-l z-100"></div>
-      <div class="butterfly butterfly-small butterfly-right absolute bottom-[120px] right-[10px] fw-r z-100"></div>
+      <div class="butterfly butterfly-small butterfly-left animation-1 absolute bottom-[120px] left-[40px] fw-l z-100"></div>
+      <div class="butterfly butterfly-small butterfly-right animation-2 absolute bottom-[120px] right-[10px] fw-r z-100"></div>
 
       <img
         src={fw_l}
@@ -117,22 +117,6 @@ function Decoration() {
         className="absolute -bottom-[220px] -right-[50px] h-[520px] fw-r rotate-45"
       />
 
-      <img
-        src={daun_l}
-        className="absolute top-[300px] -left-5 h-[80px] fw-l z-60"
-      />
-      <img
-        src={daun_l}
-        className="absolute top-[320px] -left-5 h-[100px] fw-l z-60 rotate-45"
-      />
-      <img
-        src={daun_r}
-        className="absolute top-[300px] -right-5 h-[80px] fw-r z-60"
-      />
-      <img
-        src={daun_r}
-        className="absolute top-[320px] -right-5 h-[100px] fw-r z-60 -rotate-45"
-      />
     </div>
   );
 }

@@ -1,11 +1,11 @@
 @import url('https://fonts.cdnfonts.com/css/javassoul');
 
 body {
-    font-family: 'Sans Serif';
+  font-family: 'Sans Serif';
 }
 
 .javassoul {
-    font-family: 'Javassoul', sans-serif;
+  font-family: 'Javassoul', sans-serif;
 }
 
 
@@ -35,7 +35,7 @@ body {
 }
 
 .wheel {
-  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  background: radial-gradient(100% 100% at center, hsla(0, 0%, 60%, 0) 47.8%, hsl(0, 0%, 60%) 48%);
   z-index: 2;
 }
 
@@ -45,17 +45,17 @@ body {
   left: calc(50% - 3.5em);
   width: 7em;
   height: 3.75em;
-  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform: rotate(4deg) translate(-0.8em, 1.85em);
   transform-origin: 50% 0;
   z-index: 1;
 }
 
 .hamster__head {
   animation: hamsterHead var(--dur) ease-in-out infinite;
-  background: hsl(30,90%,55%);
+  background: hsl(30, 90%, 55%);
   border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
-  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
-		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  box-shadow: 0 -0.25em 0 hsl(30, 90%, 80%) inset,
+    0.75em -1.55em 0 hsl(30, 90%, 90%) inset;
   top: 0;
   left: -2em;
   width: 2.75em;
@@ -65,9 +65,9 @@ body {
 
 .hamster__ear {
   animation: hamsterEar var(--dur) ease-in-out infinite;
-  background: hsl(0,90%,85%);
+  background: hsl(0, 90%, 85%);
   border-radius: 50%;
-  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  box-shadow: -0.25em 0 hsl(30, 90%, 55%) inset;
   top: -0.25em;
   right: -0.25em;
   width: 0.75em;
@@ -77,7 +77,7 @@ body {
 
 .hamster__eye {
   animation: hamsterEye var(--dur) linear infinite;
-  background-color: hsl(0,0%,0%);
+  background-color: hsl(0, 0%, 0%);
   border-radius: 50%;
   top: 0.375em;
   left: 1.25em;
@@ -86,7 +86,7 @@ body {
 }
 
 .hamster__nose {
-  background: hsl(0,90%,75%);
+  background: hsl(0, 90%, 75%);
   border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
   top: 0.75em;
   left: 0;
@@ -96,10 +96,10 @@ body {
 
 .hamster__body {
   animation: hamsterBody var(--dur) ease-in-out infinite;
-  background: hsl(30,90%,90%);
+  background: hsl(30, 90%, 90%);
   border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
-  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
-		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  box-shadow: 0.1em 0.75em 0 hsl(30, 90%, 55%) inset,
+    0.15em -0.5em 0 hsl(30, 90%, 80%) inset;
   top: 0.25em;
   left: 2em;
   width: 4.5em;
@@ -110,7 +110,7 @@ body {
 
 .hamster__limb--fr,
 .hamster__limb--fl {
-  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  clip-path: polygon(0 0, 100% 0, 70% 80%, 60% 100%, 0% 100%, 40% 80%);
   top: 2em;
   left: 0.5em;
   width: 1em;
@@ -120,20 +120,20 @@ body {
 
 .hamster__limb--fr {
   animation: hamsterFRLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  background: linear-gradient(hsl(30, 90%, 80%) 80%, hsl(0, 90%, 75%) 80%);
   transform: rotate(15deg) translateZ(-1px);
 }
 
 .hamster__limb--fl {
   animation: hamsterFLLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  background: linear-gradient(hsl(30, 90%, 90%) 80%, hsl(0, 90%, 85%) 80%);
   transform: rotate(15deg);
 }
 
 .hamster__limb--br,
 .hamster__limb--bl {
   border-radius: 0.75em 0.75em 0 0;
-  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 70% 90%, 70% 100%, 30% 100%, 40% 90%, 0% 30%);
   top: 1em;
   left: 2.8em;
   width: 1.5em;
@@ -143,21 +143,21 @@ body {
 
 .hamster__limb--br {
   animation: hamsterBRLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  background: linear-gradient(hsl(30, 90%, 80%) 90%, hsl(0, 90%, 75%) 90%);
   transform: rotate(-25deg) translateZ(-1px);
 }
 
 .hamster__limb--bl {
   animation: hamsterBLLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  background: linear-gradient(hsl(30, 90%, 90%) 90%, hsl(0, 90%, 85%) 90%);
   transform: rotate(-25deg);
 }
 
 .hamster__tail {
   animation: hamsterTail var(--dur) linear infinite;
-  background: hsl(0,90%,85%);
+  background: hsl(0, 90%, 85%);
   border-radius: 0.25em 50% 50% 0.25em;
-  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  box-shadow: 0 -0.2em 0 hsl(0, 90%, 75%) inset;
   top: 1.5em;
   right: -0.5em;
   width: 1em;
@@ -168,8 +168,8 @@ body {
 
 .spoke {
   animation: spoke var(--dur) linear infinite;
-  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
-		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+  background: radial-gradient(100% 100% at center, hsl(0, 0%, 60%) 4.8%, hsla(0, 0%, 60%, 0) 5%),
+    linear-gradient(hsla(0, 0%, 55%, 0) 46.9%, hsl(0, 0%, 65%) 47% 52.9%, hsla(0, 0%, 65%, 0) 53%) 50% 50% / 99% 99% no-repeat;
 }
 
 
@@ -179,32 +179,129 @@ body {
   from {
     transform: rotate3d(0, 1, 0, 180deg);
   }
+
   30% {
     transform: rotate3d(0, 1, 0, 180deg);
   }
+
   50% {
     transform: rotate3d(0, 1, 0, 100deg);
   }
+
   70% {
     transform: rotate3d(0, 1, 0, 180deg);
   }
+
   to {
     transform: rotate3d(0, 1, 0, 180deg);
   }
 }
+
 @keyframes leftwingani {
   from {
     transform: rotate3d(0, 1, 0, 0deg);
   }
+
   30% {
     transform: rotate3d(0, 1, 0, 0deg);
   }
+
   50% {
     transform: rotate3d(0, 1, 0, 80deg);
   }
+
   70% {
     transform: rotate3d(0, 1, 0, 0deg);
   }
+
+  to {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+}
+
+@keyframes rightwingani2 {
+  from {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  20% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 1, 0, 100deg);
+  }
+
+  90% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  to {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+
+@keyframes leftwingani2 {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+
+  20% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 1, 0, 80deg);
+  }
+
+  90% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+
+  to {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+}
+
+@keyframes rightwingani3 {
+  from {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  50% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  70% {
+    transform: rotate3d(0, 1, 0, 100deg);
+  }
+
+  90% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+
+  to {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+
+@keyframes leftwingani3 {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+
+  50% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+
+  70% {
+    transform: rotate3d(0, 1, 0, 80deg);
+  }
+
+  90% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+
   to {
     transform: rotate3d(0, 1, 0, 0deg);
   }
@@ -217,6 +314,7 @@ body {
   transform: rotate(20deg) scale(0.6, 0.6);
   transform-origin: center center;
 }
+
 .butterfly-large.butterfly-right {
   width: 140px;
   height: 87px;
@@ -226,6 +324,7 @@ body {
   transform: rotate(-20deg) scale(0.6, 0.6);
   transform-origin: center center;
 }
+
 .butterfly-small.butterfly-left {
   /* Wings */
   /* Right wing */
@@ -233,6 +332,7 @@ body {
   transform: rotate(20deg) scale(0.4, 0.4);
   transform-origin: center center;
 }
+
 .butterfly-small.butterfly-right {
   width: 140px;
   height: 87px;
@@ -242,7 +342,9 @@ body {
   transform: rotate(-20deg) scale(0.4, 0.4);
   transform-origin: center center;
 }
-.butterfly:before, .butterfly:after {
+
+.butterfly:before,
+.butterfly:after {
   position: absolute;
   width: 75px;
   content: url("/images/butterfly-wing.png");
@@ -250,13 +352,37 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
+
 .butterfly:before {
   transform: rotate3d(0, 0, 0, 180deg);
   /* Mirror left wing */
   transform-origin: center right;
-  animation-name: rightwingani;
 }
+
 .butterfly:after {
   transform-origin: top right;
+}
+
+.animation-1:before {
+  animation-name: rightwingani;
+}
+
+.animation-1:after {
   animation-name: leftwingani;
+}
+
+.animation-2:before {
+  animation-name: rightwingani2;
+}
+
+.animation-2:after {
+  animation-name: leftwingani2;
+}
+
+.animation-3:before {
+  animation-name: rightwingani3;
+}
+
+.animation-3:after {
+  animation-name: leftwingani3;
 }
