@@ -3,6 +3,7 @@ import coupleImage from "/images/couple-img.png";
 import MockNav from '../components/MockNav';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import Navigation from '../components/Navigation';
 
 function Greetings() {
   useGSAP(() => {
@@ -35,7 +36,6 @@ function Greetings() {
           <p className='text-center text-xs md:text-sm font-light'>Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara resepsi pernikahan anak kami</p>
         </div>
       </div>
-      <MockNav prevPage="/" nextPage="/groom" />
     </div>
   )
 }

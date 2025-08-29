@@ -3,7 +3,7 @@ import Decoration from "../components/Decoration";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-function Opening() {
+function Opening({ onClick }) {
   useGSAP(() => {
     gsap.from(".transition", {
       opacity: 0,
@@ -30,12 +30,12 @@ function Opening() {
           <p className="text-xs">Bapak/Ibu, Saudara/i</p>
           <h1 className="text-2xl">Andi</h1>
         </div>
-        <a
-          href="/greetings"
+        <button
+          onClick={onClick}
           className="w-fit p-2 px-5 z-100 bg-[#AA873C] rounded-full text-white flex justify-center text-sm"
         >
           Open Invitation
-        </a>
+        </button>
       </div>
     </div>
   );
