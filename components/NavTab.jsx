@@ -32,22 +32,22 @@ function NavTab({ label, isActive, onClick }) {
       className="p-2 rounded-full border-2 border-white text-white bg-red-900 w-fit flex gap-1 items-center transition-all ease-in-out duration-1000"
       onClick={onClick}
     >
-      {label === "Greetings" && <IconMailHeart stroke={2} />}
-      {label === "Groom" && <IconTie stroke={2} color="#fff" />}
-      {label === "Bride" && <IconFlower stroke={2} color="#fff" />}
-      {label === "Event" && <IconCalendarEvent stroke={2} />}
-      {label === "Maps" && <IconMapPin stroke={2} color="#fff" />}
-      {label === "Gallery" && <IconPhoto stroke={2} color="#fff" />}
-      {label === "Quotes" && <IconQuote stroke={2} color="#fff" />}
-      {label === "RSPV" && <IconMail stroke={2} color="#fff" />}
-      {label === "Gift" && <IconGift stroke={2} color="#fff" />}
-      {label === "Thanks" && <IconHeart Flower stroke={2} color="#fff" />}
+      {label === "Greetings" && <IconMailHeart stroke={2} size={30} />}
+      {label === "Groom" && <IconTie stroke={2} size={30} color="#fff" />}
+      {label === "Bride" && <IconFlower stroke={2} size={30} color="#fff" />}
+      {label === "Event" && <IconCalendarEvent stroke={2} size={30} />}
+      {label === "Maps" && <IconMapPin stroke={2} size={30} color="#fff" />}
+      {label === "Gallery" && <IconPhoto stroke={2} size={30} color="#fff" />}
+      {label === "Quotes" && <IconQuote stroke={2} size={30} color="#fff" />}
+      {label === "RSPV" && <IconMail stroke={2} size={30} color="#fff" />}
+      {label === "Gift" && <IconGift stroke={2} size={30} color="#fff" />}
+      {label === "Thanks" && <IconHeart Flower stroke={2} size={30} color="#fff" />}
 
       <span
-        className={`transition-all duration-1000 ease-in-out transform 
+        className={`transition-all duration-1000 ease-in-out transform text-lg
     ${
       isActive
-        ? "opacity-100 translate-x-0 ml-1"
+        ? "opacity-100 translate-x-0"
         : "opacity-0 -translate-x-2 w-0"
     }
   `}
