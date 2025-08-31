@@ -11,6 +11,7 @@ import { IconMailHeart } from "@tabler/icons-react";
 import React from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import RSPV from "../pages/RSPV";
 
 function NavTab({ label, isActive, onClick }) {
   const tabRef = useRef(null);
@@ -53,7 +54,7 @@ function NavTab({ label, isActive, onClick }) {
         }
       `}
         >
-          {label}
+          {label == "RSPV" ? "RSVP" : label}
         </span>
       </div>
     </button>
