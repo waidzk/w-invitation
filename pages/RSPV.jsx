@@ -1,7 +1,4 @@
-import React from "react";
-import MockNav from "../components/MockNav";
 import Decoration from "../components/Decoration";
-import { data, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import supabase from "../src/supabase-client";
 import { useEffect } from "react";
@@ -21,6 +18,9 @@ function RSPV() {
   useEffect(() => {
     fetchData();
   }, []);
+  useEffect(() => {
+    console.log(listData);
+  }, [listData]);
 
   const fetchData = async () => {
     const { data, error } = await supabase.from("RSVP_Novar").select("*");
@@ -51,7 +51,7 @@ function RSPV() {
     if (error) {
       console.error("Error: ", error);
     } else {
-      setListData((prev) => [...prev, data]);
+      setListData((prev) => [...prev, comment]);
       setComment({
         name: "",
         group: "",
@@ -86,7 +86,9 @@ function RSPV() {
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
           <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center pt-14 h-[calc(100vh-110px)] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            <h1 className="javassoul text-3xl text-[#AA873C] mb-4 transition-from-top">RSVP</h1>
+            <h1 className="javassoul text-3xl text-[#AA873C] mb-4 transition-from-top">
+              RSVP
+            </h1>
             <div className="w-72">
               <form onSubmit={handleSubmit}>
                 {/* Name */}
@@ -181,7 +183,7 @@ function RSPV() {
               <hr className="border-[#AA873C] transition-from-bottom" />
 
               {/* LIST CARDS */}
-              <div className="flex flex-col gap-2 mt-5">
+              <div className="flex flex-col gap-2 my-5">
                 {listData.map((data, i) => (
                   <div
                     key={i}
