@@ -1,18 +1,181 @@
 import React from "react";
 import MockNav from "../components/MockNav";
 import Decoration from "../components/Decoration";
+import { data, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import supabase from "../src/supabase-client";
+import { useEffect } from "react";
 
 function RSPV() {
+  const [listData, setListData] = useState([]);
+  const [comment, setComment] = useState({
+    name: "",
+    group: "",
+    phone_number: "",
+    isComing: true,
+    comment: "",
+  });
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const { data, error } = await supabase.from("RSVP_Novar").select("*");
+    if (error) {
+      console.log("Error: ", error);
+    } else {
+      setListData(data);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setComment((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Data dikirim:", comment);
+    // bisa tambahkan API call atau logic lain
+    const { data, error } = await supabase
+      .from("RSVP_Novar")
+      .insert([comment])
+      .single();
+
+    if (error) {
+      console.error("Error: ", error);
+    } else {
+      setListData((prev) => [...prev, data]);
+      setComment({
+        name: "",
+        group: "",
+        phone_number: "",
+        isComing: true,
+        comment: "",
+      });
+    }
+  };
+
   return (
     <div className="relative overflow-hidden max-w-[450px] w-full h-[100dvh] bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
-          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100vh-110px)]">
-            <h1 className="javassoul text-2xl text-[#AA873C]">RSPV</h1>
-            <h1 className="javassoul text-2xl text-[#AA873C]">
-              Belum Jadi :')
-            </h1>
+          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center pt-14 h-[calc(100vh-110px)] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <h1 className="javassoul text-3xl text-[#AA873C] mb-4">RSVP</h1>
+            <div className="w-72">
+              <form onSubmit={handleSubmit}>
+                {/* Name */}
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3">
+                  <label htmlFor="name" className="text-sm font-bold">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={comment.name}
+                    onChange={handleChange}
+                    className="border border-[#AA873C] rounded-md px-2 py-1"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                {/* Group */}
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3">
+                  <label htmlFor="group" className="text-sm font-bold">
+                    Group
+                  </label>
+                  <input
+                    type="text"
+                    id="group"
+                    value={comment.group}
+                    onChange={handleChange}
+                    className="border border-[#AA873C] rounded-md px-2 py-1"
+                    placeholder="Where are you from?"
+                  />
+                </div>
+
+                {/* Whatsapp */}
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4">
+                  <label htmlFor="phone_number" className="text-sm font-bold">
+                    No. Whatsapp
+                  </label>
+                  <input
+                    type="text"
+                    id="phone_number"
+                    value={comment.phone_number}
+                    onChange={handleChange}
+                    className="border border-[#AA873C] rounded-md px-2 py-1"
+                    placeholder="Nomor Whatsapp"
+                  />
+                </div>
+
+                {/* Kehadiran */}
+                <div className="flex items-center justify-between gap-2 text-[#AA873C] mb-4">
+                  <p className="text-lg font-bold">Tidak Hadir</p>
+                  <div className="checkbox-wrapper-5 h-[40px]">
+                    <div className="check">
+                      <input
+                        id="check-5"
+                        type="checkbox"
+                        checked={comment.isComing}
+                        onChange={(e) =>
+                          setComment((prev) => ({
+                            ...prev,
+                            isComing: e.target.checked,
+                          }))
+                        }
+                      />
+                      <label htmlFor="check-5"></label>
+                    </div>
+                  </div>
+                  <p className="text-lg font-bold">Hadir</p>
+                </div>
+
+                {/* Comment */}
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4">
+                  <label htmlFor="comment" className="text-sm font-bold">
+                    Komentar atau Ucapan
+                  </label>
+                  <textarea
+                    id="comment"
+                    value={comment.comment}
+                    onChange={handleChange}
+                    className="border border-[#AA873C] rounded-md px-2 py-1 h-24"
+                    placeholder="Ketik ucapanmu untuk mempelai"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full p-2 bg-[#AA873C] rounded-full text-white mb-5"
+                >
+                  Kirim
+                </button>
+              </form>
+
+              <hr className="border-[#AA873C]" />
+
+              {/* LIST CARDS */}
+              <div className="flex flex-col gap-2 mt-5">
+                {listData.map((data, i) => (
+                  <div key={i} className="border border-[#AA873C] bg-red-900 text-[#cca757] rounded-md py-2 px-3">
+                    <div className="flex items-center justify-between w-full">
+                      <h5 className="text-xl font-semibold">{data.name}</h5>
+                      <span>{data.isComing ? "Hadir" : "Tidak Hadir"}</span>
+                    </div>
+                    <hr className="border-[#AA873C] my-2"/>
+                    <p className="text-justify text-sm font-light">
+                      {data.comment}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
