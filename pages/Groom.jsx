@@ -33,7 +33,7 @@ function Groom() {
             <h1 className="javassoul text-4xl md:text-5xl">
               Kadek Novar Setyawan
             </h1>
-            <p className="text-xs pl-2">Putra dari</p>
+            <p className="text-xs pl-2">Putra kedua dari</p>
             <p className="text-sm pl-2">Bapak Novar & Ibu Novar</p>
           </div>
           <div className="w-64 h-[500px] md:h-[600px] rounded-t-full border-2 border-[#AA873C] px-1 pt-1 transition-from-bottom">

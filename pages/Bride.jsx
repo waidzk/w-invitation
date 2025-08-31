@@ -30,7 +30,7 @@ function Bride() {
             <div className='flex flex-col justify-center items-center'>
               <div className='w-64 mb-20 md:mb-10 text-[#AA873C] text-center transition-from-top'>
                 <h1 className='javassoul text-4xl md:text-5xl'>Raras Ayu Septyastuti Ali Dewi</h1>
-                <p className='text-xs pl-2'>Putri dari</p>
+                <p className='text-xs pl-2'>Putri pertama dari</p>
                 <p className='text-sm pl-2'>Bapak Raras & Ibu Raras</p>
               </div>
               <div className='w-64 h-[500px] md:h-[600px] rounded-t-full border-2 border-[#AA873C] px-1 pt-1 transition-from-bottom'>

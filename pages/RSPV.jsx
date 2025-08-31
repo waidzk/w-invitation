@@ -94,7 +94,7 @@ function RSPV() {
                 {/* Name */}
                 <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3 transition-from-bottom">
                   <label htmlFor="name" className="text-sm font-bold">
-                    Name
+                    Nama
                   </label>
                   <input
                     type="text"
@@ -102,14 +102,14 @@ function RSPV() {
                     value={comment.name}
                     onChange={handleChange}
                     className="border border-[#AA873C] rounded-md px-2 py-1"
-                    placeholder="Your name"
+                    placeholder="Tuliskan nama Anda di sini"
                   />
                 </div>
 
                 {/* Group */}
-                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3 transition-from-bottom">
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4 transition-from-bottom">
                   <label htmlFor="group" className="text-sm font-bold">
-                    Group
+                    Asal
                   </label>
                   <input
                     type="text"
@@ -117,22 +117,7 @@ function RSPV() {
                     value={comment.group}
                     onChange={handleChange}
                     className="border border-[#AA873C] rounded-md px-2 py-1"
-                    placeholder="Where are you from?"
-                  />
-                </div>
-
-                {/* Whatsapp */}
-                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4 transition-from-bottom">
-                  <label htmlFor="phone_number" className="text-sm font-bold">
-                    No. Whatsapp
-                  </label>
-                  <input
-                    type="text"
-                    id="phone_number"
-                    value={comment.phone_number}
-                    onChange={handleChange}
-                    className="border border-[#AA873C] rounded-md px-2 py-1"
-                    placeholder="Nomor Whatsapp"
+                    placeholder="Tuliskan kota/daerah asal Anda"
                   />
                 </div>
 
@@ -183,7 +168,7 @@ function RSPV() {
               <hr className="border-[#AA873C] transition-from-bottom" />
 
               {/* LIST CARDS */}
-              <div className="flex flex-col gap-2 my-5">
+              <div className="flex flex-col-reverse gap-2 my-5">
                 {listData.map((data, i) => (
                   <div
                     key={i}

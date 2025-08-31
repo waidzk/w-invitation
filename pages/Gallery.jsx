@@ -1,10 +1,10 @@
-import React from "react";
 import Decoration from "../components/Decoration";
-import MockNav from "../components/MockNav";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import useFancybox from "../components/useFancybox";
 
 function Gallery() {
+  const [fancyboxRef] = useFancybox();
   useGSAP(() => {
     gsap.from(".transition-from-bottom", {
       opacity: 0,
@@ -31,48 +31,60 @@ function Gallery() {
             <h1 className="javassoul text-2xl text-[#AA873C] transition-from-top">
               Our gallery
             </h1>
-            <div className="grid grid-cols-3 gap-2">
+            <div ref={fancyboxRef} className="grid grid-cols-3 gap-2">
               <div className="col-span-2 h-40">
-                <img
-                  src="/images/prewed.jpg"
-                  alt="prewedd"
-                  className="h-full w-full object-cover transition-from-bottom"
-                />
+                <a data-fancybox="gallery" href="/images/prewed.jpg">
+                  <img
+                    src="/images/prewed.jpg"
+                    alt="prewedd"
+                    className="h-full w-full object-cover transition-from-bottom"
+                  />
+                </a>
               </div>
               <div className="h-40">
-                <img
-                  src="/images/prewed.jpg"
-                  alt="prewedd"
-                  className="h-full w-full object-cover transition-from-bottom"
-                />
+                <a data-fancybox="gallery" href="/images/prewed.jpg">
+                  <img
+                    src="/images/prewed.jpg"
+                    alt="prewedd"
+                    className="h-full w-full object-cover transition-from-bottom"
+                  />
+                </a>
               </div>
               <div className="h-40">
-                <img
-                  src="/images/prewed.jpg"
-                  alt="prewedd"
-                  className="h-full w-full object-cover transition-from-bottom"
-                />
+                <a data-fancybox="gallery" href="/images/prewed.jpg">
+                  <img
+                    src="/images/prewed.jpg"
+                    alt="prewedd"
+                    className="h-full w-full object-cover transition-from-bottom"
+                  />
+                </a>
               </div>
               <div className="col-span-2 h-40">
-                <img
-                  src="/images/prewed.jpg"
-                  alt="prewedd"
-                  className="h-full w-full object-cover transition-from-bottom"
-                />
+                <a data-fancybox="gallery" href="/images/prewed.jpg">
+                  <img
+                    src="/images/prewed.jpg"
+                    alt="prewedd"
+                    className="h-full w-full object-cover transition-from-bottom"
+                  />
+                </a>
               </div>
               <div className="col-span-2 h-40">
-                <img
-                  src="/images/prewed.jpg"
-                  alt="prewedd"
-                  className="h-full w-full object-cover transition-from-bottom"
-                />
+                <a data-fancybox="gallery" href="/images/prewed.jpg">
+                  <img
+                    src="/images/prewed.jpg"
+                    alt="prewedd"
+                    className="h-full w-full object-cover transition-from-bottom"
+                  />
+                </a>
               </div>
               <div className="h-40">
-                <img
-                  src="/images/prewed.jpg"
-                  alt="prewedd"
-                  className="h-full w-full object-cover transition-from-bottom"
-                />
+                <a data-fancybox="gallery" href="/images/prewed.jpg">
+                  <img
+                    src="/images/prewed.jpg"
+                    alt="prewedd"
+                    className="h-full w-full object-cover transition-from-bottom"
+                  />
+                </a>
               </div>
             </div>
           </div>
