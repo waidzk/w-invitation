@@ -5,6 +5,8 @@ import { data, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import supabase from "../src/supabase-client";
 import { useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 function RSPV() {
   const [listData, setListData] = useState([]);
@@ -60,17 +62,35 @@ function RSPV() {
     }
   };
 
+  useGSAP(() => {
+    gsap.from(".transition-from-bottom", {
+      opacity: 0,
+      duration: 1.2,
+      y: 30,
+      stagger: 0.2,
+      ease: "power1.inOut",
+    });
+
+    gsap.from(".transition-from-top", {
+      opacity: 0,
+      duration: 1.2,
+      y: -30,
+      stagger: 0.2,
+      ease: "power1.inOut",
+    });
+  });
+
   return (
     <div className="relative overflow-hidden max-w-[450px] w-full h-[100dvh] bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
           <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center pt-14 h-[calc(100vh-110px)] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            <h1 className="javassoul text-3xl text-[#AA873C] mb-4">RSVP</h1>
+            <h1 className="javassoul text-3xl text-[#AA873C] mb-4 transition-from-top">RSVP</h1>
             <div className="w-72">
               <form onSubmit={handleSubmit}>
                 {/* Name */}
-                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3">
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3 transition-from-bottom">
                   <label htmlFor="name" className="text-sm font-bold">
                     Name
                   </label>
@@ -85,7 +105,7 @@ function RSPV() {
                 </div>
 
                 {/* Group */}
-                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3">
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3 transition-from-bottom">
                   <label htmlFor="group" className="text-sm font-bold">
                     Group
                   </label>
@@ -100,7 +120,7 @@ function RSPV() {
                 </div>
 
                 {/* Whatsapp */}
-                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4">
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4 transition-from-bottom">
                   <label htmlFor="phone_number" className="text-sm font-bold">
                     No. Whatsapp
                   </label>
@@ -115,7 +135,7 @@ function RSPV() {
                 </div>
 
                 {/* Kehadiran */}
-                <div className="flex items-center justify-between gap-2 text-[#AA873C] mb-4">
+                <div className="flex items-center justify-between gap-2 text-[#AA873C] mb-4 transition-from-bottom">
                   <p className="text-lg font-bold">Tidak Hadir</p>
                   <div className="checkbox-wrapper-5 h-[40px]">
                     <div className="check">
@@ -137,7 +157,7 @@ function RSPV() {
                 </div>
 
                 {/* Comment */}
-                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4">
+                <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-4 transition-from-bottom">
                   <label htmlFor="comment" className="text-sm font-bold">
                     Komentar atau Ucapan
                   </label>
@@ -152,23 +172,26 @@ function RSPV() {
 
                 <button
                   type="submit"
-                  className="w-full p-2 bg-[#AA873C] rounded-full text-white mb-5"
+                  className="w-full p-2 bg-[#AA873C] rounded-full text-white mb-5 transition-from-bottom"
                 >
                   Kirim
                 </button>
               </form>
 
-              <hr className="border-[#AA873C]" />
+              <hr className="border-[#AA873C] transition-from-bottom" />
 
               {/* LIST CARDS */}
               <div className="flex flex-col gap-2 mt-5">
                 {listData.map((data, i) => (
-                  <div key={i} className="border border-[#AA873C] bg-red-900 text-[#cca757] rounded-md py-2 px-3">
+                  <div
+                    key={i}
+                    className="border border-[#AA873C] bg-red-900 text-[#cca757] rounded-md py-2 px-3 transition-from-bottom"
+                  >
                     <div className="flex items-center justify-between w-full">
                       <h5 className="text-xl font-semibold">{data.name}</h5>
                       <span>{data.isComing ? "Hadir" : "Tidak Hadir"}</span>
                     </div>
-                    <hr className="border-[#AA873C] my-2"/>
+                    <hr className="border-[#AA873C] my-2" />
                     <p className="text-justify text-sm font-light">
                       {data.comment}
                     </p>
