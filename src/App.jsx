@@ -22,6 +22,39 @@ function App() {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+
+    if (Math.abs(deltaX) > 50) {
+      // threshold biar ga terlalu sensitif
+      const currentIndex =
+        activeTab === "Opening" ? -1 : tabs.indexOf(activeTab);
+
+      if (deltaX > 0) {
+        // swipe kanan → tab sebelumnya
+        if (currentIndex > 0) {
+          setActiveTab(tabs[currentIndex - 1]);
+        }
+      } else {
+        // swipe kiri → tab berikutnya
+        if (currentIndex < tabs.length - 1) {
+          setActiveTab(tabs[currentIndex + 1]);
+        }
+      }
+    }
+
+    setTouchStartX(null);
+  };
+
   const tabs = [
     "Greetings",
     "Groom",
@@ -64,7 +97,11 @@ function App() {
   };
 
   return (
-    <div className="flex justify-center bg-[#d3c8af]">
+    <div
+      className="flex justify-center bg-[#d3c8af]"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Tab Content */}
       {activeTab === "Opening" && <Opening onClick={handleOpen} />}
       {activeTab === "Greetings" && <Greetings />}

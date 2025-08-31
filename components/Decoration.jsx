@@ -5,8 +5,6 @@ import fw_l from "/images/fw-l.png";
 import mid_fw_l from "/images/mid-fw-l.png";
 import fw_r from "/images/fw-r.png";
 import mid_fw_r from "/images/mid-fw-r.png";
-import daun_l from "/images/daun-l.png";
-import daun_r from "/images/daun-r.png";
 
 function Decoration() {
   useGSAP(() => {
@@ -30,43 +28,6 @@ function Decoration() {
     });
   });
 
-  useGSAP(() => {
-    gsap.to(".big-fw-l", {
-      rotation: "-360",
-      repeat: -1,
-      duration: 20,
-      ease: "none",
-    });
-  }, []);
-  useGSAP(() => {
-    gsap.to(".big-fw-r", {
-      rotation: "360",
-      repeat: -1,
-      duration: 20,
-      ease: "none",
-    });
-  }, []);
-
-  useGSAP(() => {
-    gsap.to(".fw-bl", {
-      rotation: 5,
-      yoyo: true,
-      repeat: -1,
-      duration: 2,
-      ease: "sine.inOut",
-      transformOrigin: "center bottom",
-    });
-  });
-  useGSAP(() => {
-    gsap.to(".daun", {
-      rotation: -2,
-      yoyo: true,
-      repeat: -1,
-      duration: 2,
-      ease: "sine.inOut",
-      transformOrigin: "center bottom",
-    });
-  });
 
   return (
     <div>
