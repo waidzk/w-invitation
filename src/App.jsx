@@ -60,8 +60,8 @@ function App() {
 
       {/* Tab Navigation */}
       {activeTab != "Opening" && (
-        <div className="absolute bottom-0 max-w-[450px] w-full z-100 px-5 pb-3">
-          <div className="flex items-center gap-2 w-full bg-white/20 backdrop-blur-md rounded-full p-2 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="absolute bottom-0 max-w-[445px] w-full z-100 px-5">
+          <div className="flex items-center gap-2 w-full bg-white/20 backdrop-blur-md rounded-t-2xl p-2 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {tabs.map((tab) => (
               <NavTab
                 key={tab}
