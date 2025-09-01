@@ -1,11 +1,13 @@
-import React from "react";
 import Decoration from "../components/Decoration";
-import MockNav from "../components/MockNav";
 import { IconPlant2 } from "@tabler/icons-react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import ElCountdown from "../components/elCountdown";
+import Countdown from "react-countdown";
 
 function Event() {
+  // target date: 28 September 2025
+  const targetDate = new Date("2025-09-28T00:00:00").getTime();
   useGSAP(() => {
     gsap.from(".transition-from-bottom", {
       opacity: 0,
@@ -26,7 +28,9 @@ function Event() {
               Akad pernikahan
               <IconPlant2 width={15} />
             </p>
-            <p className="text-sm transition-from-bottom">Pukul 08.00 WIB - Selesai</p>
+            <p className="text-sm transition-from-bottom">
+              Pukul 08.00 WIB - Selesai
+            </p>
             <div className="javassoul my-8 text-center transition-from-bottom">
               <h1 className="text-5xl">Minggu</h1>
               <h1 className="text-6xl text-[#AA873C] mt-2">23.06.25</h1>
@@ -36,8 +40,13 @@ function Event() {
               Kediaman Wanita
               <IconPlant2 width={15} />
             </p>
-            <p className="text-sm font-light transition-from-bottom">Perum KCVRI</p>
-            <p className="text-sm font-light transition-from-bottom">Blok A. No. 09 RT 01/RW 07</p>
+            <p className="text-sm font-light transition-from-bottom">
+              Perum KCVRI
+            </p>
+            <p className="text-sm font-light transition-from-bottom">
+              Blok A. No. 09 RT 01/RW 07
+            </p>
+            <Countdown date={targetDate} renderer={ElCountdown} />
           </div>
         </div>
       </div>

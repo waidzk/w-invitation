@@ -42,7 +42,7 @@ function NavTab({ label, isActive, onClick }) {
       {label === "Quotes" && <IconQuote stroke={2} size={35} />}
       {label === "RSPV" && <IconMail stroke={2} size={35} />}
       {label === "Gift" && <IconGift stroke={2} size={35} />}
-      {label === "Thanks" && <IconHeart Flower stroke={2} size={35} />}
+      {label === "Thanks" && <IconHeart stroke={2} size={35} />}
 
       <div className="overflow-hidden">
         <span
