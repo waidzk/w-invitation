@@ -7,6 +7,7 @@ import gsap from "gsap";
 
 function RSPV() {
   const [listData, setListData] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(5);
   const [comment, setComment] = useState({
     name: "",
     group: "",
@@ -62,6 +63,10 @@ function RSPV() {
     }
   };
 
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 5);
+  };
+
   useGSAP(() => {
     gsap.from(".transition-from-bottom", {
       opacity: 0,
@@ -89,7 +94,7 @@ function RSPV() {
             <h1 className="javassoul text-3xl text-[#AA873C] mb-4 transition-from-top">
               RSVP
             </h1>
-            <div className="w-72">
+            <div className="w-72 pb-10">
               <form onSubmit={handleSubmit}>
                 {/* Name */}
                 <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3 transition-from-bottom">
@@ -103,6 +108,7 @@ function RSPV() {
                     onChange={handleChange}
                     className="border border-[#AA873C] rounded-md px-2 py-1"
                     placeholder="Tuliskan nama Anda di sini"
+                    required
                   />
                 </div>
 
@@ -118,6 +124,7 @@ function RSPV() {
                     onChange={handleChange}
                     className="border border-[#AA873C] rounded-md px-2 py-1"
                     placeholder="Tuliskan kota/daerah asal Anda"
+                    required
                   />
                 </div>
 
@@ -168,23 +175,37 @@ function RSPV() {
               <hr className="border-[#AA873C] transition-from-bottom" />
 
               {/* LIST CARDS */}
-              <div className="flex flex-col-reverse gap-2 my-5">
-                {listData.map((data, i) => (
-                  <div
-                    key={i}
-                    className="border border-[#AA873C] bg-red-900 text-[#cca757] rounded-md py-2 px-3 transition-from-bottom"
-                  >
-                    <div className="flex items-center justify-between w-full">
-                      <h5 className="text-xl font-semibold">{data.name}</h5>
-                      <span>{data.isComing ? "Hadir" : "Tidak Hadir"}</span>
+              <div className="flex flex-col gap-2 my-5">
+                {listData
+                  .slice() // copy biar tidak mutasi state asli
+                  .reverse() // urutkan terbalik
+                  .slice(0, visibleCount) // ambil sesuai limit
+                  .map((data, i) => (
+                    <div
+                      key={i}
+                      className="border border-[#AA873C] bg-red-900 text-[#cca757] rounded-md py-2 px-3 transition-from-bottom"
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <h5 className="text-xl font-semibold">{data.name}</h5>
+                        <span>{data.isComing ? "Hadir" : "Tidak Hadir"}</span>
+                      </div>
+                      <hr className="border-[#AA873C] my-2" />
+                      <p className="text-justify text-sm font-light">
+                        {data.comment}
+                      </p>
                     </div>
-                    <hr className="border-[#AA873C] my-2" />
-                    <p className="text-justify text-sm font-light">
-                      {data.comment}
-                    </p>
-                  </div>
-                ))}
+                  ))}
               </div>
+
+              {/* Load More Button */}
+              {visibleCount < listData.length && (
+                <button
+                  onClick={handleLoadMore}
+                  className="mx-auto block px-4 py-2 bg-[#AA873C] text-white rounded-lg hover:bg-[#8a6d2f] transition"
+                >
+                  Load More
+                </button>
+              )}
             </div>
           </div>
         </div>
