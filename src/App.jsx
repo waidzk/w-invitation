@@ -23,19 +23,31 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const [touchStartX, setTouchStartX] = useState(null);
+  const [touchStartY, setTouchStartY] = useState(null);
 
   const handleTouchStart = (e) => {
     setTouchStartX(e.touches[0].clientX);
+    setTouchStartY(e.touches[0].clientY);
   };
 
   const handleTouchEnd = (e) => {
-    if (touchStartX === null) return;
+    if (touchStartX === null || touchStartY === null) return;
 
     const touchEndX = e.changedTouches[0].clientX;
-    const deltaX = touchEndX - touchStartX;
+    const touchEndY = e.changedTouches[0].clientY;
 
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    // Kalau pergerakan lebih dominan ke bawah/atas (scroll), jangan anggap swipe
+    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      setTouchStartX(null);
+      setTouchStartY(null);
+      return;
+    }
+
+    // Hanya trigger kalau pergerakan horizontal cukup besar
     if (Math.abs(deltaX) > 50) {
-      // threshold biar ga terlalu sensitif
       const currentIndex =
         activeTab === "Opening" ? -1 : tabs.indexOf(activeTab);
 
@@ -53,6 +65,7 @@ function App() {
     }
 
     setTouchStartX(null);
+    setTouchStartY(null);
   };
 
   const tabs = [
