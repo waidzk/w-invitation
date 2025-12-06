@@ -2,7 +2,7 @@ import Decoration from "../components/Decoration";
 import { IconPlant2 } from "@tabler/icons-react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import ElCountdown from "../components/elCountdown";
+import ElCountdown from "../components/ElCountdown";
 import Countdown from "react-countdown";
 
 function Event() {
