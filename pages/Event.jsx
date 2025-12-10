@@ -25,26 +25,26 @@ function Event() {
           <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100vh-110px)]">
             <p className="text-xs font-semibold text-[#AA873C] flex items-center gap-1 transition-from-bottom">
               <IconPlant2 width={15} />
-              Akad pernikahan
+              Resepsi Pernikahan
               <IconPlant2 width={15} />
             </p>
             <p className="text-sm transition-from-bottom">
-              Pukul 08.00 WIB - Selesai
+              Pukul 11.00 WITA - selesai
             </p>
             <div className="javassoul my-8 text-center transition-from-bottom">
-              <h1 className="text-5xl">Minggu</h1>
-              <h1 className="text-6xl text-[#AA873C] mt-2">23.06.25</h1>
+              <h1 className="text-4xl md:text-5xl">Minggu</h1>
+              <h1 className="text-4xl md:text-5xl text-[#AA873C] mt-2">11 Januari 2026</h1>
             </div>
             <p className="text-xs font-semibold text-[#AA873C] flex items-center gap-1 transition-from-bottom">
               <IconPlant2 width={15} />
-              Kediaman Wanita
+              Lokasi
               <IconPlant2 width={15} />
             </p>
-            <p className="text-sm font-light transition-from-bottom">
-              Perum KCVRI
+            <p className="text-sm font-light transition-from-bottom px-2">
+              Br. Pausan, Desa Buahan Kaja,
             </p>
-            <p className="text-sm font-light transition-from-bottom">
-              Blok A. No. 09 RT 01/RW 07
+            <p className="text-sm font-light transition-from-bottom px-4">
+              Kecamatan Payangan, Kabupaten Gianyar
             </p>
             <Countdown date={targetDate} renderer={ElCountdown} />
           </div>

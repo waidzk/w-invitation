@@ -31,7 +31,7 @@ function Gallery() {
             <h1 className="javassoul text-2xl text-[#AA873C] transition-from-top">
               Our gallery
             </h1>
-            <div ref={fancyboxRef} className="grid grid-cols-3 gap-2">
+            <div ref={fancyboxRef} className="grid grid-cols-3 gap-2 px-2">
               <div className="col-span-2 h-40">
                 <a data-fancybox="gallery" href="/images/prewed.jpg">
                   <img

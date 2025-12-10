@@ -94,7 +94,7 @@ function RSPV() {
             <h1 className="javassoul text-3xl text-[#AA873C] mb-4 transition-from-top">
               RSVP
             </h1>
-            <div className="w-72 pb-10">
+            <div className="px-2 pb-10 md:w-full md:px-16">
               <form onSubmit={handleSubmit}>
                 {/* Name */}
                 <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3 transition-from-bottom">
@@ -130,7 +130,7 @@ function RSPV() {
 
                 {/* Kehadiran */}
                 <div className="flex items-center justify-between gap-2 text-[#AA873C] mb-4 transition-from-bottom">
-                  <p className="text-lg font-bold">Tidak Hadir</p>
+                  <p className="text-sm font-bold">Tidak Hadir</p>
                   <div className="checkbox-wrapper-5 h-[40px]">
                     <div className="check">
                       <input
@@ -147,7 +147,7 @@ function RSPV() {
                       <label htmlFor="check-5"></label>
                     </div>
                   </div>
-                  <p className="text-lg font-bold">Hadir</p>
+                  <p className="text-sm font-bold">Hadir</p>
                 </div>
 
                 {/* Comment */}
@@ -166,7 +166,7 @@ function RSPV() {
 
                 <button
                   type="submit"
-                  className="w-full p-2 bg-[#AA873C] rounded-full text-white mb-5 transition-from-bottom"
+                  className="w-full p-2 bg-[#AA873C] rounded-full text-white mb-5 transition-from-bottom text-sm"
                 >
                   Kirim
                 </button>
@@ -186,8 +186,8 @@ function RSPV() {
                       className="border border-[#AA873C] bg-red-900 text-[#cca757] rounded-md py-2 px-3 transition-from-bottom"
                     >
                       <div className="flex items-center justify-between w-full">
-                        <h5 className="text-xl font-semibold">{data.name}</h5>
-                        <span>{data.isComing ? "Hadir" : "Tidak Hadir"}</span>
+                        <h5 className="text-sm font-semibold">{data.name}</h5>
+                        <span className="text-sm">{data.isComing ? "Hadir" : "Tidak Hadir"}</span>
                       </div>
                       <hr className="border-[#AA873C] my-2" />
                       <p className="text-justify text-sm font-light">

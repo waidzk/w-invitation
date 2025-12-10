@@ -28,13 +28,13 @@ function Bride() {
       <Decoration />
         <div className='w-full h-full flex items-end justify-center'>
             <div className='flex flex-col justify-center items-center'>
-              <div className='w-64 mb-20 md:mb-10 text-[#AA873C] text-center transition-from-top'>
-                <h1 className='javassoul text-4xl md:text-5xl'>Raras Ayu Septyastuti Ali Dewi</h1>
+              <div className='w-56 md:w-64 mb-8 md:mb-10 text-[#AA873C] text-center transition-from-top'>
+                <h1 className='javassoul text-4xl md:text-5xl'>Raras Ayu Septyastuti Ali Dewi</h1>
                 <p className='text-xs pl-2'>Putri pertama dari</p>
-                <p className='text-sm pl-2'>Bapak Raras & Ibu Raras</p>
+                <p className='text-sm pl-2'>Ali Hariyanto & <br/> Ni Nyoman Kiwati S.E., M.Si</p>
               </div>
-              <div className='w-64 h-[500px] md:h-[600px] rounded-t-full border-2 border-[#AA873C] px-1 pt-1 transition-from-bottom'>
-                <img src='/images/bride.png' alt='bride' className='rounded-t-full h-full object-cover' />
+              <div className='w-56 md:w-64 h-[400px] md:h-[450px] rounded-t-full border-2 border-[#AA873C] px-1 pt-1 transition-from-bottom'>
+                <img src='/images/Foto Bride.jpg' alt='bride' className='rounded-t-full h-full object-cover' />
               </div>
             </div>
         </div>

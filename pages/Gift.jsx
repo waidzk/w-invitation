@@ -28,16 +28,16 @@ function Gift() {
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
           <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100vh-110px)]">
-            <h1 className="javassoul text-4xl text-[#AA873C] transition-from-bottom">Tanda Kasih</h1>
-            <p className="text-center w-[300px] transition-from-bottom">
+            <h1 className="javassoul text-3xl text-[#AA873C] transition-from-bottom">Tanda Kasih</h1>
+            <p className="text-center text-sm px-8 transition-from-bottom">
               Terima kasih telah menambah semangat kegembiraan pernikahan kami
               dengan kehadiran dan hadiah indah Anda.
             </p>
-            <div className="w-[300px] flex flex-col gap-2 mt-5">
-              <button className="px-5 py-2 bg-[#AA873C] rounded-full text-white cursor-pointer transition-from-bottom">
+            <div className="w-full px-8 flex flex-col gap-2 mt-5">
+              <button className="px-5 py-2 bg-[#AA873C] text-sm rounded-full text-white cursor-pointer transition-from-bottom">
                 Cashless
               </button>
-              <button className="px-5 py-2 bg-[#AA873C] rounded-full text-white cursor-pointer transition-from-bottom">
+              <button className="px-5 py-2 bg-[#AA873C] text-sm rounded-full text-white cursor-pointer transition-from-bottom">
                 Kado
               </button>
             </div>
