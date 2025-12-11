@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import Opening from "../pages/Opening";
@@ -15,8 +15,10 @@ import RSPV from "../pages/RSPV";
 import Thanks from "../pages/Thanks";
 import NavTab from "../components/NavTab";
 import ToggleSong from "../components/ToggleSong";
+import Loading from "../pages/Loading";
 
 function App() {
+  const [ready, setReady] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const defaultTab = searchParams.get("tab") || "Opening"; // default Opening
   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -24,6 +26,29 @@ function App() {
 
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchStartY, setTouchStartY] = useState(null);
+
+  useEffect(() => {
+    if (!("serviceWorker" in navigator)) {
+      setReady(true);
+      return;
+    }
+
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(() => {
+        console.log("Service Worker registered");
+
+        // Tunggu hingga SW benar-benar aktif
+        return navigator.serviceWorker.ready;
+      })
+      .then(() => {
+        setReady(true);
+      })
+      .catch(() => {
+        // Kalau ada masalah, tetap tampilkan app
+        setReady(true);
+      });
+  }, []);
 
   const handleTouchStart = (e) => {
     setTouchStartX(e.touches[0].clientX);
@@ -108,6 +133,10 @@ function App() {
       elem.msRequestFullscreen();
     }
   };
+
+  if (!ready) {
+    return <Loading />;
+  }
 
   return (
     <div

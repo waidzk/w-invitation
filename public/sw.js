@@ -1,70 +1,36 @@
-const CACHE_NAME = "wedding-site-v1";
-const urlsToCache = [
-  "/", 
-  "/greetings",
-  "/bride",
-  "/groom",
-  "/event",
-  "/maps",
-  "/gallery",
-  "/quotes",
-  "/rspv",
-  "/gift",
-  "/thanks",
-  "/index.html",
-  "/vite.svg",
-];
+const CACHE_NAME = "nextjs-cache-v1";
 
-// Install SW → pre-cache halaman dasar
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    })
-  );
+// install event (precache halaman utama)
+self.addEventListener("install", event => {
+  self.skipWaiting();
 });
 
-// Fetch → cek cache dulu, kalau belum ada fetch & simpan
-self.addEventListener("fetch", (event) => {
-  const { request } = event;
+// activate event
+self.addEventListener("activate", event => {
+  event.waitUntil(clients.claim());
+});
+
+// STALE-WHILE-REVALIDATE
+self.addEventListener("fetch", event => {
+  const request = event.request;
+
+  // Hanya cache GET request
+  if (request.method !== "GET") return;
 
   event.respondWith(
-    caches.match(request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(request).then((networkResponse) => {
-        // runtime cache untuk images atau static assets
-        if (
-          request.url.includes("/images/") || 
-          request.destination === "style" ||
-          request.destination === "script" ||
-          request.destination === "font"
-        ) {
-          return caches.open(CACHE_NAME).then((cache) => {
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(request).then(cachedResponse => {
+        const fetchPromise = fetch(request)
+          .then(networkResponse => {
+            // Bila berhasil, update cache
             cache.put(request, networkResponse.clone());
             return networkResponse;
-          });
-        }
+          })
+          .catch(() => cachedResponse);
 
-        return networkResponse;
+        // Kembalikan cache lebih dulu, sambil update
+        return cachedResponse || fetchPromise;
       });
-    })
-  );
-});
-
-// Activate → hapus cache lama
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
-          }
-        })
-      );
     })
   );
 });
