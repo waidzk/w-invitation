@@ -37,7 +37,7 @@ function App() {
     navigator.serviceWorker
       .register("/sw.js")
       .then(() => {
-        console.log("Service Worker registered");
+        // console.log("Service Worker registered");
 
         // Tunggu hingga SW benar-benar aktif
         return navigator.serviceWorker.ready;
@@ -49,6 +49,7 @@ function App() {
         }, 2000);
       })
       .catch(() => {
+        console.error("Service Worker Failed Register")
         // Jika SW gagal, tetap tampilkan page
         setReady(true);
       });

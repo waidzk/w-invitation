@@ -1,36 +1,49 @@
-const CACHE_NAME = "nextjs-cache-v1";
+const CACHE_NAME = 'nextjs-cache-v1';
 
-// install event (precache halaman utama)
-self.addEventListener("install", event => {
+self.addEventListener('install', (e) => {
   self.skipWaiting();
 });
 
-// activate event
-self.addEventListener("activate", event => {
-  event.waitUntil(clients.claim());
+self.addEventListener('activate', (e) => {
+  e.waitUntil(clients.claim());
 });
 
-// STALE-WHILE-REVALIDATE
-self.addEventListener("fetch", event => {
-  const request = event.request;
+self.addEventListener('fetch', (event) => {
+  const req = event.request;
 
-  // Hanya cache GET request
-  if (request.method !== "GET") return;
+  // hanya GET
+  if (req.method !== 'GET') return;
+
+  let url;
+  try {
+    url = new URL(req.url);
+  } catch (err) {
+    return; // malformed URL -> skip
+  }
+
+  // hanya http/https
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
+
+  // hanya same-origin (opsional, tapi aman)
+  if (url.origin !== self.location.origin) return;
 
   event.respondWith(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.match(request).then(cachedResponse => {
-        const fetchPromise = fetch(request)
-          .then(networkResponse => {
-            // Bila berhasil, update cache
-            cache.put(request, networkResponse.clone());
-            return networkResponse;
-          })
-          .catch(() => cachedResponse);
+    caches.open(CACHE_NAME).then(async (cache) => {
+      const cached = await cache.match(req);
+      const networkPromise = fetch(req)
+        .then(async (networkResponse) => {
+          // tangani cache.put secara defensif
+          try {
+            await cache.put(req, networkResponse.clone());
+          } catch (err) {
+            // ignore put errors (misalnya opaque / cors / extension)
+            // console.warn('cache.put failed', err);
+          }
+          return networkResponse;
+        })
+        .catch(() => cached); // jika fetch gagal, fallback ke cache jika ada
 
-        // Kembalikan cache lebih dulu, sambil update
-        return cachedResponse || fetchPromise;
-      });
+      return cached || networkPromise;
     })
   );
 });
