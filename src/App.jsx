@@ -29,6 +29,7 @@ function App() {
 
   useEffect(() => {
     if (!("serviceWorker" in navigator)) {
+      // Tidak ada SW → tidak perlu loading
       setReady(true);
       return;
     }
@@ -42,10 +43,13 @@ function App() {
         return navigator.serviceWorker.ready;
       })
       .then(() => {
-        setReady(true);
+        // Setelah SW ready, tunggu 2 detik sebelum tampilkan page
+        setTimeout(() => {
+          setReady(true);
+        }, 2000);
       })
       .catch(() => {
-        // Kalau ada masalah, tetap tampilkan app
+        // Jika SW gagal, tetap tampilkan page
         setReady(true);
       });
   }, []);
