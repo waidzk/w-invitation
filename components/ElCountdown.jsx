@@ -1,5 +1,5 @@
 // Random component
-const Completionist = () => <span className="transition-from-bottom text-xs mt-2">You are good to go!</span>;
+const Completionist = () => <span className="transition-from-bottom text-xs mt-2"></span>;
 
 // Renderer callback with condition
 function ElCountdown({ days, hours, minutes, seconds, completed }) {

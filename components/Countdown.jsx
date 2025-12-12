@@ -1,7 +1,7 @@
 import Countdown from "react-countdown";
 
 // Random component
-const Completionist = () => <span>You are good to go!</span>;
+const Completionist = () => <span></span>;
 
 // Renderer callback with condition
 const Countdown = ({ hours, minutes, seconds, completed }) => {
