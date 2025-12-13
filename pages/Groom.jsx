@@ -25,9 +25,9 @@ function Groom() {
   return (
     <div className="relative overflow-hidden max-w-[450px] w-full h-[100dvh] bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
-      <div className="w-full h-full flex items-end justify-center">
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-56 md:w-72 mb-8 md:mb-10 text-[#AA873C] text-center flex flex-col items-center transition-from-top">
+      <div className="w-full h-full flex justify-center">
+        <div className="flex flex-col justify-between items-center">
+          <div className="w-56 md:w-72 mb-8 md:mb-10 pt-20 text-[#AA873C] text-center flex flex-col items-center transition-from-top">
             <h1 className="javassoul text-3xl md:text-5xl w-full">
               Kadek Novar Setiawan, S.Kom
             </h1>

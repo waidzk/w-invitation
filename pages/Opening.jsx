@@ -1,9 +1,8 @@
-import React from "react";
 import Decoration from "../components/Decoration";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-function Opening({ onClick }) {
+function Opening({ onClick, guestName }) {
   useGSAP(() => {
     gsap.from(".transition", {
       opacity: 0,
@@ -28,7 +27,7 @@ function Opening({ onClick }) {
         <div className="bg-white/15 backdrop-blur-xs mb-4 p-5 flex flex-col items-center w-48 rounded-xl">
           <p className="text-xs">Kepada yth,</p>
           <p className="text-xs">Bapak/Ibu, Saudara/i</p>
-          <h1 className="text-2xl">Andi</h1>
+          <h1 className="text-2xl">{guestName}</h1>
         </div>
         <button
           onClick={onClick}

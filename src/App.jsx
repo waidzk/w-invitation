@@ -21,6 +21,7 @@ function App() {
   const [ready, setReady] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const defaultTab = searchParams.get("tab") || "Opening"; // default Opening
+  const guestName = searchParams.get("to") || "..."; // default Opening
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -114,9 +115,7 @@ function App() {
   // update URL param jika tab berubah
   useEffect(() => {
     if (activeTab !== "Opening") {
-      setSearchParams({ tab: activeTab });
-    } else {
-      setSearchParams({}); // hapus param jika Opening
+      setSearchParams({ tab: activeTab, to: guestName } );
     }
   }, [activeTab, setSearchParams]);
 
@@ -150,7 +149,7 @@ function App() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Tab Content */}
-      {activeTab === "Opening" && <Opening onClick={handleOpen} />}
+      {activeTab === "Opening" && <Opening onClick={handleOpen} guestName={guestName} />}
       {activeTab === "Greetings" && <Greetings />}
       {activeTab === "Groom" && <Groom />}
       {activeTab === "Bride" && <Bride />}
@@ -158,7 +157,7 @@ function App() {
       {activeTab === "Maps" && <Maps />}
       {activeTab === "Gallery" && <Gallery />}
       {activeTab === "Quotes" && <Quotes />}
-      {activeTab === "RSPV" && <RSPV />}
+      {activeTab === "RSPV" && <RSPV guestName={guestName} />}
       {activeTab === "Gift" && <Gift />}
       {activeTab === "Thanks" && <Thanks />}
 

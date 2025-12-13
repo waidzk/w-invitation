@@ -25,15 +25,15 @@ function Bride() {
   return (
     <div className="relative overflow-hidden max-w-[450px] w-full h-[100dvh] bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
-      <div className="w-full h-full flex items-end justify-center">
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-56 md:w-64 mb-8 md:mb-10 text-[#AA873C] text-center transition-from-top">
+      <div className="w-full h-full flex justify-center">
+        <div className="flex flex-col justify-between items-center">
+          <div className="w-56 md:w-64 mb-8 md:mb-10 pt-20 text-[#AA873C] text-center transition-from-top">
             <h1 className="javassoul text-4xl md:text-5xl">
               Raras Ayu Septyastuti Ali Dewi
             </h1>
             <p className="text-xs pl-2">Putri pertama dari</p>
             <p className="text-sm pl-2">
-              Ali Hariyanto & <br /> Ni Nyoman Kiwati S.E., M.Si
+              Ali Hariyanto & <br /> Ni Nyoman Kirwati, S.E., M.Si
             </p>
           </div>
           <div className="w-64 h-[600px] md:h-[500px] rounded-t-full border-2 border-[#AA873C] px-1 pt-1 transition-from-bottom">

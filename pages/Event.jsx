@@ -7,7 +7,7 @@ import Countdown from "react-countdown";
 
 function Event() {
   // target date: 28 September 2025
-  const targetDate = new Date("2025-12-07T00:00:00").getTime();
+  const targetDate = new Date("2026-01-11T00:00:00").getTime();
   useGSAP(() => {
     gsap.from(".transition-from-bottom", {
       opacity: 0,

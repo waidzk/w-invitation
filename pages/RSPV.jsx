@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-function RSPV() {
+function RSPV({ guestName }) {
   const [listData, setListData] = useState([]);
   const [visibleCount, setVisibleCount] = useState(5);
   const [comment, setComment] = useState({
@@ -104,6 +104,7 @@ function RSPV() {
                   <input
                     type="text"
                     id="name"
+                    defaultValue={guestName}
                     value={comment.name}
                     onChange={handleChange}
                     className="border border-[#AA873C] rounded-md px-2 py-1"
@@ -187,7 +188,9 @@ function RSPV() {
                     >
                       <div className="flex items-center justify-between w-full">
                         <h5 className="text-sm font-semibold">{data.name}</h5>
-                        <span className="text-sm">{data.isComing ? "Hadir" : "Tidak Hadir"}</span>
+                        <span className="text-sm">
+                          {data.isComing ? "Hadir" : "Tidak Hadir"}
+                        </span>
                       </div>
                       <hr className="border-[#AA873C] my-2" />
                       <p className="text-justify text-sm font-light">
