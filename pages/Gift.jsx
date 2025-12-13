@@ -1,7 +1,6 @@
 import Decoration from "../components/Decoration";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Drawer from "../components/Drawer";
 import { useState } from "react";
 import Modal from "../components/Modal";
 
