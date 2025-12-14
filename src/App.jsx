@@ -113,11 +113,11 @@ function App() {
   ];
 
   // update URL param jika tab berubah
-  useEffect(() => {
-    if (activeTab !== "Opening") {
-      setSearchParams({ tab: activeTab, to: guestName } );
-    }
-  }, [activeTab, setSearchParams]);
+  // useEffect(() => {
+  //   if (activeTab !== "Opening") {
+  //     setSearchParams({ tab: activeTab, to: guestName } );
+  //   }
+  // }, [activeTab, setSearchParams]);
 
   // handler ketika keluar dari Opening
   const handleOpen = () => {
