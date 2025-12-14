@@ -41,7 +41,7 @@ function Thanks() {
               <div className="w-1/2 flex flex-col text-center transition-from-bottom">
                 <p className="text-xs underline">Keluarga</p>
                 <p className="font-bold text-sm">Ali Hariyanto</p>
-                <p className="font-bold text-sm">Ni Nyoman Kiwati S.E., M.Si</p>
+                <p className="font-bold text-sm">Ni Nyoman Kirwati, S.E., M.Si</p>
               </div>
             </div>
           </div>

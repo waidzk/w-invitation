@@ -27,7 +27,7 @@ function Opening({ onClick, guestName }) {
         <div className="bg-white/15 backdrop-blur-xs mb-4 p-5 flex flex-col items-center w-48 rounded-xl">
           <p className="text-xs">Kepada yth,</p>
           <p className="text-xs">Bapak/Ibu, Saudara/i</p>
-          <h1 className="text-2xl">{guestName}</h1>
+          <h1 className="text-2xl text-center">{guestName}</h1>
         </div>
         <button
           onClick={onClick}

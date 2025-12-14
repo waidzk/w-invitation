@@ -6,19 +6,19 @@ function Modal({ isOpen, onClose, title, children, footer }) {
 
   return (
     <div
-      className="fixed inset-0  flex items-center justify-center p-4 z-50 animate-fadeIn"
+      className="fixed inset-0 flex items-center justify-center p-4 z-50 animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all animate-slideUp"
+        className="bg-white text-black rounded-xl shadow-2xl max-w-md w-full transform transition-all animate-slideUp"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
+          <h2 className="text-2xl font-bold text-black">{title}</h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition duration-200"
+            className="text-black hover:text-gray-600 transition duration-200"
           >
             <IconX size={20} />
           </button>

@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useState } from "react";
 import Modal from "../components/Modal";
+import { IconCopy } from "@tabler/icons-react";
 
 function Gift() {
   const [modalCashless, setModalCashless] = useState(false);
@@ -46,7 +47,10 @@ function Gift() {
                 Cashless
               </button>
 
-              <button onClick={() => setModalKado(true)} className="px-5 py-2 bg-[#AA873C] text-sm rounded-full text-white cursor-pointer transition-from-bottom">
+              <button
+                onClick={() => setModalKado(true)}
+                className="px-5 py-2 bg-[#AA873C] text-sm rounded-full text-white cursor-pointer transition-from-bottom"
+              >
                 Kado
               </button>
             </div>
@@ -56,13 +60,63 @@ function Gift() {
               title="Cashless"
             >
               <div className="flex flex-col gap-2">
-                <div className="flex flex-col">
-                    <p>Kadek Novar Setiawan</p>
-                    <h2 className="text-2xl">BNI | 699756482</h2>
+                <div class="card flex flex-row items-center gap-10 text-gray-800">
+                  <div class="box w-130 h-52 bg-gray-200 rounded-lg relative shadow-2xl overflow-hidden">
+                    <div class="status flex w-full justify-between px-9 py-7 relative z-10"></div>
+                    <div class="x bg-slate-300 svg-bg w-14 h-14 absolute top-5 left-5 rounded-md z-10"></div>
+                    <img
+                      src="/images/logo-bni-new.png"
+                      alt="BNI"
+                      class="absolute top-5 right-5 z-0 w-28"
+                    />
+                    <div class="x absolute bottom-7 left-5 z-10">
+                      <div className="flex gap-2">
+                        <h1 class="x text-2xl font-bold">0699756482</h1>
+                        <button
+                          className="text-gray-600 hover:text-gray-800"
+                          onClick={() => {
+                            navigator.clipboard.writeText("0699756482");
+                          }}
+                        >
+                          <IconCopy size={20} />
+                        </button>
+                      </div>
+                      <h2 class="x font-bold tracking-wider">
+                        Kadek Novar Setiawan
+                      </h2>
+                    </div>
+                    <div class="x w-140 h-140 bg-white/60 pattern-bg rounded-full absolute top-3 right-0"></div>
+                    <div class="x w-140 h-140 border-2 border-white rounded-full absolute top-15 left-80 z-10"></div>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                    <p>Raras Ayu Septyastuti Ali Dewi</p>
-                    <h2 className="text-2xl">BRI | 472101024183539</h2>
+                <div class="card flex flex-row items-center gap-10 text-gray-800">
+                  <div class="box w-130 h-52 bg-gray-200 rounded-lg relative shadow-2xl overflow-hidden">
+                    <div class="status flex w-full justify-between px-9 py-7 relative z-10"></div>
+                    <div class="x bg-slate-300 svg-bg w-14 h-14 absolute top-5 left-5 rounded-md z-10"></div>
+                    <img
+                      src="/images/bri-logo.png"
+                      alt="BRI"
+                      class="absolute top-5 right-5 z-0 w-24"
+                    />
+                    <div class="x absolute bottom-7 left-5 z-10">
+                      <div className="flex gap-2">
+                        <h1 class="x text-2xl font-bold">472101024183539</h1>
+                        <button
+                          className="text-gray-600 hover:text-gray-800"
+                          onClick={() => {
+                            navigator.clipboard.writeText("472101024183539");
+                          }}
+                        >
+                          <IconCopy size={20} />
+                        </button>
+                      </div>
+                      <h2 class="x font-bold tracking-wider">
+                        Raras Ayu Septyastuti Ali Dewi
+                      </h2>
+                    </div>
+                    <div class="x w-140 h-140 bg-white/60 pattern-bg rounded-full absolute top-3 right-0"></div>
+                    <div class="x w-140 h-140 border-2 border-white rounded-full absolute top-15 left-80 z-10"></div>
+                  </div>
                 </div>
               </div>
             </Modal>
@@ -73,7 +127,12 @@ function Gift() {
               title="Alamat Pengiriman Kado"
             >
               <div className="flex flex-col gap-2">
-                <a className="underline text-blue-500 cursor-pointer" href="https://goo.gl/maps/rcuvHLWjTt9Jjgp78">Br. Untal Untal, Kec.Kuta Utara</a>
+                <a
+                  className="underline text-blue-500 cursor-pointer"
+                  href="https://goo.gl/maps/rcuvHLWjTt9Jjgp78"
+                >
+                  Br. Untal Untal, Kec.Kuta Utara
+                </a>
               </div>
             </Modal>
           </div>
