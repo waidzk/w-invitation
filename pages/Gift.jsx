@@ -3,11 +3,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useState } from "react";
 import Modal from "../components/Modal";
-import { IconCopy } from "@tabler/icons-react";
+import { IconCheck, IconCopy } from "@tabler/icons-react";
 
 function Gift() {
   const [modalCashless, setModalCashless] = useState(false);
   const [modalKado, setModalKado] = useState(false);
+  const [isCopied1, setIsCopied1] = useState(false);
+  const [isCopied2, setIsCopied2] = useState(false);
 
   useGSAP(() => {
     gsap.from(".transition-from-bottom", {
@@ -76,9 +78,15 @@ function Gift() {
                           className="text-gray-600 hover:text-gray-800"
                           onClick={() => {
                             navigator.clipboard.writeText("0699756482");
+                            setIsCopied1(true);
+                            setTimeout(() => setIsCopied1(false), 2000);
                           }}
                         >
-                          <IconCopy size={20} />
+                          {isCopied1 ? (
+                            <IconCheck size={20} />
+                          ) : (
+                            <IconCopy size={20} />
+                          )}
                         </button>
                       </div>
                       <h2 class="x font-bold tracking-wider">
@@ -105,9 +113,15 @@ function Gift() {
                           className="text-gray-600 hover:text-gray-800"
                           onClick={() => {
                             navigator.clipboard.writeText("472101024183539");
+                            setIsCopied2(true);
+                            setTimeout(() => setIsCopied2(false), 2000);
                           }}
                         >
-                          <IconCopy size={20} />
+                          {isCopied2 ? (
+                            <IconCheck size={20} />
+                          ) : (
+                            <IconCopy size={20} />
+                          )}
                         </button>
                       </div>
                       <h2 class="x font-bold tracking-wider">

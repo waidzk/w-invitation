@@ -22,7 +22,7 @@ function Event() {
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
-          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100vh-110px)]">
+          <div className="bg-white/20 backdrop-blur-md rounded-2xl relative flex flex-col items-center justify-center h-[calc(100vh-110px)]">
             <p className="text-xs font-semibold text-[#AA873C] flex items-center gap-1 transition-from-bottom">
               <IconPlant2 width={15} />
               Resepsi Pernikahan
@@ -47,6 +47,9 @@ function Event() {
               Kecamatan Payangan, Kabupaten Gianyar
             </p>
             <Countdown date={targetDate} renderer={ElCountdown} />
+            <div className="absolute bottom-0 mb-10 transition-from-bottom">
+              <p className="text-xl text-[#AA873C] font-bold">#selaRASbersamaNOVAR</p>
+            </div>
           </div>
         </div>
       </div>

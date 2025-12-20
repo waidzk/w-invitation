@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import Decoration from "../components/Decoration";
-import MockNav from "../components/MockNav";
 import gsap from "gsap";
 
 function Thanks() {
@@ -43,6 +42,9 @@ function Thanks() {
                 <p className="font-bold text-sm">Ali Hariyanto</p>
                 <p className="font-bold text-sm">Ni Nyoman Kirwati, S.E., M.Si</p>
               </div>
+            </div>
+            <div className="py-5 transition-from-bottom">
+              <p className="text-xl text-[#AA873C] font-semibold">#selaRASbersamaNOVAR</p>
             </div>
           </div>
         </div>
