@@ -94,7 +94,7 @@ function RSPV({ guestName }) {
             <h1 className="javassoul text-3xl text-[#AA873C] mb-4 transition-from-top">
               RSVP
             </h1>
-            <div className="px-2 pb-10 md:w-full md:px-16">
+            <div className="px-2 pb-32 lg:pb-15 md:w-full md:px-16">
               <form onSubmit={handleSubmit}>
                 {/* Name */}
                 <div className="flex flex-col gap-1 w-full text-[#AA873C] mb-3 transition-from-bottom">

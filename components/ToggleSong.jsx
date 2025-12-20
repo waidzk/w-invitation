@@ -20,10 +20,10 @@ function ToggleSong({ autoPlay = false }) {
   };
 
   return (
-    <div className="absolute bottom-20 right-0 z-100 px-5">
+    <div className="absolute bottom-20  max-w-[445px] w-full z-100 px-5">
       {/* Audio element */}
       <audio ref={audioRef} src="/song.mp3" loop autoPlay={autoPlay} />
-      <div className="flex flex-col items-end gap-2">
+      <div className="flex flex-col items-end gap-2 ">
         <button
           onClick={togglePlay}
           className="rounded-full p-3 text-white bg-white/20 backdrop-blur-md"
