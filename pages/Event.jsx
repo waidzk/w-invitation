@@ -48,7 +48,7 @@ function Event() {
             </p>
             <Countdown date={targetDate} renderer={ElCountdown} />
             <div className="absolute bottom-0 mb-10 transition-from-bottom">
-              <p className="text-xl text-[#AA873C] font-bold">#selaRASbersamaNOVAR</p>
+              <p className="text-base text-[#AA873C] font-bold">#selaRASbersamaNOVAR</p>
             </div>
           </div>
         </div>

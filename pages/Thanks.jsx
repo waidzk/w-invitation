@@ -25,7 +25,7 @@ function Thanks() {
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
-          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100vh-110px)]">
+          <div className="bg-white/20 backdrop-blur-md rounded-2xl relative flex flex-col items-center justify-center h-[calc(100vh-110px)]">
             <p className="text-center w-full px-8 text-sm md:text-base text-[#755d29] transition-from-top">
               Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila
               Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu
@@ -43,8 +43,8 @@ function Thanks() {
                 <p className="font-bold text-sm">Ni Nyoman Kirwati, S.E., M.Si</p>
               </div>
             </div>
-            <div className="py-5 transition-from-bottom">
-              <p className="text-xl text-[#AA873C] font-semibold">#selaRASbersamaNOVAR</p>
+            <div className="absolute bottom-0 mb-10 py-5 transition-from-bottom">
+              <p className="text-base text-[#AA873C] font-bold">#selaRASbersamaNOVAR</p>
             </div>
           </div>
         </div>
