@@ -3,13 +3,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import useFancybox from "../components/useFancybox";
 import Image from "../components/Image";
+import { useEffect } from "react";
 
 function Gallery() {
-  const [fancyboxRef] = useFancybox({
-    Carousel: {
-      infinite: false,
-    },
-  });
   useGSAP(() => {
     gsap.from(".transition-from-bottom", {
       opacity: 0,
@@ -31,6 +27,31 @@ function Gallery() {
   const wideImages = [
     1, 4, 5, 8, 9, 12, 13, 16, 17, 20, 21, 24, 25, 28, 29, 32, 33,
   ];
+
+  const [fancyboxRef] = useFancybox({
+    Carousel: { infinite: false },
+    Thumbs: false,
+    trapFocus: false,
+    placeFocusBack: false,
+    autoFocus: false,
+    hideScrollbar: false,
+  });
+
+  useEffect(() => {
+    const handler = () => {
+      document
+        .querySelectorAll(".transition-from-bottom, .transition-from-top")
+        .forEach((el) => {
+          el.style.transform = "none";
+        });
+    };
+
+    document.addEventListener("fancybox:destroy", handler);
+
+    return () => {
+      document.removeEventListener("fancybox:destroy", handler);
+    };
+  }, []);
 
   return (
     <div className="relative overflow-hidden max-w-[450px] w-full h-[100dvh] bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">

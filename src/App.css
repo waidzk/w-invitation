@@ -8,6 +8,19 @@ body {
   font-family: 'Javassoul', sans-serif;
 }
 
+body {
+  overflow-anchor: none;
+}
+
+.fancybox__container {
+  position: fixed !important;
+}
+
+html,
+body {
+  scroll-behavior: auto !important;
+}
+
 
 /* loading */
 .wheel-and-hamster {
