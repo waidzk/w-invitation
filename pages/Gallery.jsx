@@ -47,10 +47,10 @@ function Gallery() {
                 >
                   <a
                     data-fancybox="gallery"
-                    href={`/images/prewed/foto (${id}).jpg`}
+                    href={`/images/prewed/foto (${id}).webp`}
                   >
                     <Image
-                      src={`/images/prewed/foto (${id}).jpg`}
+                      src={`/images/prewed/foto (${id}).webp`}
                       alt={`prewed ${id}`}
                       className="h-full w-full object-cover transition-from-bottom"
                     />
