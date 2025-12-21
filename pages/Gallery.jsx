@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Decoration from "../components/Decoration";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -5,27 +6,44 @@ import useFancybox from "../components/useFancybox";
 import Image from "../components/Image";
 
 function Gallery() {
+  const hasAnimated = useRef(false);
+
   const [fancyboxRef] = useFancybox({
     Carousel: {
       infinite: false,
     },
+    on: {
+      close: () => {
+        // Restore body and html styles
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+        document.body.style.visibility = "visible";
+        // Force layout recalculation
+        void document.body.offsetHeight;
+      }
+    }
   });
   useGSAP(() => {
-    gsap.from(".transition-from-bottom", {
-      opacity: 0,
-      duration: 1.2,
-      y: 30,
-      stagger: 0.2,
-      ease: "power1.inOut",
-    });
+    // Pastikan animasi hanya berjalan sekali
+    if (!hasAnimated.current) {
+      gsap.from(".transition-from-bottom", {
+        opacity: 0,
+        duration: 1.2,
+        y: 30,
+        stagger: 0.2,
+        ease: "power1.inOut",
+      });
 
-    gsap.from(".transition-from-top", {
-      opacity: 0,
-      duration: 1.2,
-      y: -30,
-      stagger: 0.2,
-      ease: "power1.inOut",
-    });
+      gsap.from(".transition-from-top", {
+        opacity: 0,
+        duration: 1.2,
+        y: -30,
+        stagger: 0.2,
+        ease: "power1.inOut",
+      });
+      
+      hasAnimated.current = true;
+    }
   });
 
   const wideImages = [
