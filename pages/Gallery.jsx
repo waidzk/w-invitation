@@ -7,6 +7,8 @@ import Image from "../components/Image";
 import { useEffect } from "react";
 
 function Gallery() {
+  const hasAnimated = useRef(false);
+
   useGSAP(() => {
     // Pastikan animasi hanya berjalan sekali
     if (!hasAnimated.current) {
