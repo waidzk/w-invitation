@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Generate Link Undangan WA</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  input[type="file"], input[type="text"], textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  textarea {
+    height: 200px;
+    resize: vertical;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  #output {
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  th {
+    background: #075E54;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+  }
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+  tr:hover {
+    background: #f5f5f5;
+  }
+  .message-cell {
+    max-width: 400px;
+    white-space: pre-wrap;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .link-cell {
+    max-width: 300px;
+    word-break: break-all;
+  }
+  .link-cell a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  .link-cell a:hover {
+    text-decoration: underline;
+  }
+  .send-btn {
+    background: #25D366;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .send-btn:hover {
+    background: #128C7E;
+  }
+  .phone-number {
+    font-family: monospace;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h2>Generate Link Undangan WA dari Excel</h2>
+
+<label for="baseUrl">Base URL (opsional, bisa kosong):</label>
+<input type="text" id="baseUrl" placeholder="Misal: https://digitasee.web.id/alex-widya/?tamu=" />
+
+<label for="messageTemplate">Template Pesan Undangan (gunakan <code>{nama}</code> dan <code>{link_generated}</code>):</label>
+<textarea id="messageTemplate">ᬑᬁ᭡‌‌‌‌‌‌‌‌ ᬲ᭄ᬯ‌ᬲ᭄ᬢ᭄ᬬ ᬲ᭄ᬢᬸ᭟
+
+Dengan segala hormat dan kerendahan hati, perkenankanlah kami mengundang Bapak/Ibu/Saudara/i, untuk berbagi sukacita dalam perayaan bahagia pernikahan kami.
+
+Kami telah menyiapkan detail lengkap mengenai upacara pernikahan kami dalam tautan berikut:
+
+{link_generated}
+
+Kehadiran Bapak/Ibu/Saudara/i menjadi sebuah sukacita dan kehormatan bagi kami. Kami menantikan doa restu tulus yang akan mengiringi langkah awal bahtera rumah tangga kami.
+
+Atas perhatian, pengertian, dan doa yang telah dilimpahkan, kami haturkan terima kasih.
+
+ᬑᬁ᭡‌‌‌‌‌‌‌‌‌‌‌‌‌ ᬰᬦ᭄ᬢᬶ᭪ ᬰᬦ᭄ᬢᬶ᭪ ᬰᬦ᭄ᬢᬶ᭪ ᬑᬁ᭡‌᭟</textarea>
+
+<label for="fileInput">Upload file Excel (.xlsx) dengan kolom <strong>nama</strong> dan <strong>nomor</strong>:</label>
+<input type="file" id="fileInput" accept=".xlsx,.xls" />
+
+<button id="generateBtn" disabled>Generate Link WA</button>
+
+<div id="output"></div>
+
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+<script>
+  const fileInput = document.getElementById('fileInput');
+  const generateBtn = document.getElementById('generateBtn');
+  const output = document.getElementById('output');
+  const baseUrlInput = document.getElementById('baseUrl');
+  const messageTemplateInput = document.getElementById('messageTemplate');
+
+  let data = [];
+
+  // Deteksi device mobile
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(evt) {
+      const bstr = evt.target.result;
+      const wb = XLSX.read(bstr, { type: 'binary' });
+      const firstSheetName = wb.SheetNames[0];
+      const ws = wb.Sheets[firstSheetName];
+
+      data = XLSX.utils.sheet_to_json(ws);
+
+      if(data.length === 0){
+        output.textContent = "File kosong atau format tidak sesuai.";
+        generateBtn.disabled = true;
+        return;
+      }
+
+      if(!('nama' in data[0]) || !('nomor' in data[0])){
+        output.textContent = "File harus ada kolom 'nama' dan 'nomor'.";
+        generateBtn.disabled = true;
+        return;
+      }
+
+      output.textContent = `File berhasil dibaca. Data baris: ${data.length}. Klik 'Generate Link WA' untuk membuat link.`;
+      generateBtn.disabled = false;
+    };
+
+    reader.readAsBinaryString(file);
+  });
+
+  generateBtn.addEventListener('click', () => {
+    const baseUrl = baseUrlInput.value.trim();
+    const messageTemplate = messageTemplateInput.value.trim();
+
+    if(data.length === 0){
+      alert("Upload file Excel terlebih dahulu.");
+      return;
+    }
+    if(!messageTemplate){
+      alert("Masukkan template pesan undangan.");
+      return;
+    }
+
+    // Buat tabel
+    let tableHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Nomor Telepon</th>
+            <th>Link Generated</th>
+            <th>Message Preview</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    data.forEach((item, index) => {
+      const nama = item.nama.toString().trim();
+      let nomor = item.nomor.toString().trim();
+
+      // Ubah nomor 08xxx jadi 628xxx
+      if(nomor.startsWith("08")){
+        nomor = "62" + nomor.slice(1);
+      } else if(nomor.startsWith("+62")){
+        nomor = nomor.slice(1);
+      }
+
+      // Buat link baseUrl - HARUS ADA baseUrl
+      const linkGenerated = baseUrl ? (baseUrl + nama) : "";
+
+      // Ganti placeholder di pesan dengan nama dan link yang sudah di-generate
+      // Jika tidak ada baseUrl, jangan replace {link_generated}
+      let pesan = messageTemplate.replace(/{nama}/g, nama);
+      
+      if (linkGenerated) {
+        pesan = pesan.replace(/{link_generated}/g, linkGenerated);
+      } else {
+        // Jika tidak ada link, hapus baris yang ada {link_generated}
+        pesan = pesan.replace(/.*{link_generated}.*/g, '');
+      }
+
+      // Encode pesan untuk WhatsApp
+      const encodedPesan = encodeURIComponent(pesan);
+
+      // Pilih WA link sesuai device
+      const waLink = isMobile() 
+        ? `https://wa.me/${nomor}?text=${encodedPesan}`
+        : `https://web.whatsapp.com/send?phone=${nomor}&text=${encodedPesan}`;
+
+      // Tambah baris ke tabel
+      tableHTML += `
+        <tr>
+          <td>${index + 1}</td>
+          <td><strong>${nama}</strong></td>
+          <td class="phone-number">${nomor}</td>
+          <td class="link-cell">${linkGenerated ? `<a href="${linkGenerated}" target="_blank">${linkGenerated}</a>` : '-'}</td>
+          <td class="message-cell">${pesan}</td>
+          <td><a href="${waLink}" target="_blank" rel="noopener noreferrer" class="send-btn">📱 Kirim WA</a></td>
+        </tr>
+      `;
+    });
+
+    tableHTML += `
+        </tbody>
+      </table>
+    `;
+
+    output.innerHTML = tableHTML;
+  });
+</script>
+
+</body>
+</html>
