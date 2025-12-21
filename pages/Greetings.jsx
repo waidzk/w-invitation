@@ -35,7 +35,7 @@ function Greetings() {
           />
         </div>
         <div className="mt-6 w-40 md:w-48 pb-20 transition-from-bottom">
-          <p className="text-center text-3xl javassoul">Om Swastiastu</p>
+          <p className="text-center text-3xl javassoul">Om Swastyastu</p>
           <p className="text-center text-xs md:text-sm font-light">
             Tanpa mengurangi rasa hormat, kami bermaksud mengundang
             Bapak/Ibu/Saudara/i pada acara resepsi pernikahan putra putri kami

@@ -30,7 +30,9 @@ function Thanks() {
               Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila
               Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu
               kepada putra putri kami.
+              Atas kehadiran dan doa restunya, kami ucapkan sekeluarga mengucapkan terima kasih.
             </p>
+            <p className="text-center text-3xl javassoul text-[#AA873C] transition-from-top mt-5 pt-5" >Om Shanti, Shanti, Shanti Om</p>
             <div className="w-full px-5 flex items-center gap-2 mt-5">
               <div className="w-1/2 flex flex-col text-center transition-from-bottom">
                 <p className="text-xs underline">Keluarga</p>
