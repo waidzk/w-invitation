@@ -1,9 +1,9 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Add this - use './' if deploying to a subdirectory
   build: {
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
