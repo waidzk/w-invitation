@@ -5,7 +5,11 @@ import useFancybox from "../components/useFancybox";
 import Image from "../components/Image";
 
 function Gallery() {
-  const [fancyboxRef] = useFancybox();
+  const [fancyboxRef] = useFancybox({
+    Carousel: {
+      infinite: false,
+    },
+  });
   useGSAP(() => {
     gsap.from(".transition-from-bottom", {
       opacity: 0,
