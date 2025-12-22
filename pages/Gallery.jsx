@@ -71,7 +71,7 @@ function Gallery() {
               Our gallery
             </h1>
             <div ref={fancyboxRef} className="grid grid-cols-3 gap-2 px-2">
-              {Array.from({ length: 25 }, (_, i) => i + 1).map((id) => (
+              {Array.from({ length: 24 }, (_, i) => i + 1).map((id) => (
                 <div
                   key={id}
                   className={
