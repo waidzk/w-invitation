@@ -29,7 +29,7 @@ function Gift() {
     });
   });
   return (
-    <div className="relative overflow-hidden max-w-[450px] w-full min-h-screen h-auto bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
+    <div className="relative overflow-hidden max-w-[450px] w-full h-svh bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">

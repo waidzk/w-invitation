@@ -31,14 +31,6 @@ function Decoration() {
 
   return (
     <div>
-      {/* <img
-        src={fw_l}
-        className="absolute -top-[220px] -left-[50px] h-[520px] fw-l rotate-45 z-60"
-      />
-      <img
-        src={fw_r}
-        className="absolute -top-[220px] -right-[50px] h-[520px] fw-r -rotate-45 z-60"
-      /> */}
       {/* left top */}
       <img
         src={fw_l}

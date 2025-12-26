@@ -21,6 +21,10 @@ body {
   scroll-behavior: auto !important;
 }
 
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 
 /* loading */
 .wheel-and-hamster {

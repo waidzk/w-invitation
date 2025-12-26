@@ -23,7 +23,7 @@ function Groom() {
     });
   });
   return (
-    <div className="relative overflow-hidden max-w-[450px] w-full min-h-screen h-auto bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
+    <div className="relative overflow-hidden max-w-112.5 w-full h-svh bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
       <div className="w-full h-full flex justify-center">
         <div className="flex flex-col justify-between items-center">
@@ -34,7 +34,7 @@ function Groom() {
             <p className="text-xs pl-2">Putra kedua dari</p>
             <p className="text-sm pl-2">Drs. I Wayan Suarsana & <br/> Ni Made Kondriani, S.Pd</p>
           </div>
-          <div className="w-64 h-[600px] md:h-[500px] rounded-t-full border-2 border-[#AA873C] px-1 pt-1 transition-from-bottom">
+          <div className="w-64 h-2/3 rounded-t-full border-2 border-[#AA873C] px-1 pt-1 transition-from-bottom">
             <Image
               className={"rounded-t-full h-full object-cover"}
               src={"/images/Foto Groom.webp"}
