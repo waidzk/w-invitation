@@ -28,7 +28,7 @@ function Maps() {
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
-          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100vh-110px)]">
+          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100svh-110px)]">
             <div className="w-full h-96 p-4 transition-from-top">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.7710690429826!2d115.2597289!3d-8.3255325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd221007a90f2fb%3A0xd1f4088046ffff2c!2sPondok%20Lusuh!5e0!3m2!1sid!2sid!4v1765334623385!5m2!1sid!2sid"

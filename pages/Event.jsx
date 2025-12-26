@@ -22,7 +22,7 @@ function Event() {
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
-          <div className="bg-white/20 backdrop-blur-md rounded-2xl relative flex flex-col items-center justify-center h-[calc(100vh-110px)]">
+          <div className="bg-white/20 backdrop-blur-md rounded-2xl relative flex flex-col items-center justify-center h-[calc(100svh-110px)]">
             <p className="text-xs font-semibold text-[#AA873C] flex items-center gap-1 transition-from-bottom">
               <IconPlant2 width={15} />
               Resepsi Pernikahan

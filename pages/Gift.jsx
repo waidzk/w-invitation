@@ -33,7 +33,7 @@ function Gift() {
       <Decoration />
       <div className="absolute top-0 w-full h-full z-100">
         <div className="flex flex-col justify-center p-6">
-          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100vh-110px)]">
+          <div className="bg-white/20 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center h-[calc(100svh-110px)]">
             <h1 className="javassoul text-3xl text-[#AA873C] transition-from-bottom">
               Tanda Kasih
             </h1>
