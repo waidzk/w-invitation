@@ -14,7 +14,7 @@ function Opening({ onClick, guestName }) {
   });
 
   return (
-    <div className="relative overflow-hidden max-w-[450px] w-full h-[100dvh] bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
+    <div className="relative overflow-hidden max-w-[450px] w-full min-h-screen h-auto bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
       <div className="flex flex-col justify-center items-center w-full h-full text-[#AA873C] transition">
         <img src="/images/frame.png" className="mb-2 w-32 sm:w-64" />

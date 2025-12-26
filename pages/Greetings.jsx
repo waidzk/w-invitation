@@ -23,7 +23,7 @@ function Greetings() {
     });
   });
   return (
-    <div className="relative overflow-hidden max-w-[450px] w-full h-[100dvh] bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
+    <div className="relative overflow-hidden max-w-[450px] w-full min-h-screen h-auto bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
       <div className="flex flex-col items-center justify-center w-full h-full text-[#AA873C] transition">
         <div className="border-x-4 border-y-2 border-[#AA873C] w-[200px] h-96 md:w-[240px] md:h-[460px] rounded-full px-2 p-2 transition-from-top">
