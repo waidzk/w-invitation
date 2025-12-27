@@ -2,6 +2,8 @@ import Decoration from "../components/Decoration";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "../components/Image";
+import { IconHandMove } from "@tabler/icons-react";
+import { use } from "react";
 
 function Greetings() {
   useGSAP(() => {
@@ -22,6 +24,15 @@ function Greetings() {
       ease: "power1.inOut",
     });
   });
+  useGSAP(() => {
+    gsap.from(".icon-hand-move", {
+      duration: 1.2,
+      x: -140,
+      repeat: -1,
+      yoyo: true,
+    });
+  });
+
   return (
     <div className="relative overflow-hidden max-w-[450px] w-full h-svh bg-slate-100 bg-[url(/images/layer.png)] bg-cover bg-left">
       <Decoration />
@@ -39,6 +50,9 @@ function Greetings() {
           <p className="text-center text-xs md:text-sm font-light">
             Tanpa mengurangi rasa hormat, kami bermaksud mengundang
             Bapak/Ibu/Saudara/i pada acara resepsi pernikahan putra putri kami
+          </p>
+          <p className="flex justify-end">
+            <IconHandMove size={32} className="icon-hand-move" />
           </p>
         </div>
       </div>
